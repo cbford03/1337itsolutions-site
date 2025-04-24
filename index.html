@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,91 +6,134 @@
   <title>1337ITSolutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --primary: #0f62fe;
+      --background: #f4f7fb;
+      --text: #1a1a1a;
+      --section-bg: #ffffff;
+      --border-radius: 12px;
+    }
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+    body {
       font-family: 'Inter', sans-serif;
-      background: #f9f9f9;
-      color: #222;
+      background-color: var(--background);
+      color: var(--text);
       line-height: 1.6;
     }
-    header, section, footer {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
     header {
-      background: #111;
-      color: #fff;
+      background-color: var(--primary);
+      color: white;
+      padding: 80px 20px;
       text-align: center;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
     header p {
-      font-size: 1.2rem;
-      margin: 20px 0;
+      font-size: 1.25rem;
+      margin-bottom: 30px;
     }
     .btn {
-      background: #007bff;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
+      background-color: white;
+      color: var(--primary);
       font-weight: 600;
-      cursor: pointer;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 8px;
       text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s;
     }
-    h2 {
-      margin-top: 0;
+    .btn:hover {
+      background-color: #e6e6e6;
+    }
+    section {
+      background-color: var(--section-bg);
+      margin: 40px auto;
+      padding: 60px 30px;
+      max-width: 960px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-left: 5px solid var(--primary);
+      padding-left: 15px;
+    }
+    section p, section ul {
+      font-size: 1.1rem;
+      color: #333;
     }
     ul {
-      padding-left: 20px;
+      list-style-type: disc;
+      padding-left: 40px;
     }
     footer {
       text-align: center;
-      font-size: 0.9rem;
+      padding: 40px 20px;
+      font-size: 0.95rem;
       color: #777;
+      background-color: #ffffff;
+      margin-top: 60px;
+    }
+    footer p {
+      margin-bottom: 8px;
+    }
+    .container {
+      width: 90%;
+      max-width: 1140px;
+      margin: auto;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>1337ITSolutions</h1>
-    <p>IT Consulting. Automation. White-Glove SaaS Solutions.</p>
-    <a href="#contact" class="btn">Book a Free Discovery Call</a>
+    <div class="container">
+      <h1>1337ITSolutions</h1>
+      <p>IT Consulting. Automation. White-Glove SaaS Solutions.</p>
+      <a href="#contact" class="btn">Book a Free Discovery Call</a>
+    </div>
   </header>
 
-  <section>
-    <h2>About 1337ITSolutions</h2>
-    <p>1337ITSolutions is your partner in full-spectrum IT consulting — from cloud-native SaaS development to automation, DevOps, and white-glove hosting. We serve growing companies who want scalable, secure systems without the hassle of managing infrastructure or vendor chaos.</p>
-  </section>
+  <main class="container">
+    <section>
+      <h2>About 1337ITSolutions</h2>
+      <p>1337ITSolutions is your partner in full-spectrum IT consulting — from cloud-native SaaS development to automation, DevOps, and white-glove hosting. We serve growing companies who want scalable, secure systems without the hassle of managing infrastructure or vendor chaos.</p>
+    </section>
 
-  <section>
-    <h2>Our Services</h2>
-    <ul>
-      <li>SaaS Application Development</li>
-      <li>Cloud Infrastructure (AWS, GCP, Terraform, Kubernetes)</li>
-      <li>DevOps & CI/CD Automation</li>
-      <li>Security Hardening & Monitoring</li>
-      <li>White-Glove Managed Hosting</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Our Services</h2>
+      <ul>
+        <li>SaaS Application Development</li>
+        <li>Cloud Infrastructure (AWS, GCP, Terraform, Kubernetes)</li>
+        <li>DevOps & CI/CD Automation</li>
+        <li>Security Hardening & Monitoring</li>
+        <li>White-Glove Managed Hosting</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>The 1337 Advantage</h2>
-    <ul>
-      <li>Transparent, no-fluff consulting</li>
-      <li>Expert engineering — fast, lean, secure</li>
-      <li>Custom SaaS solutions built to scale</li>
-      <li>Full lifecycle support (dev → deploy → monitor)</li>
-    </ul>
-  </section>
+    <section>
+      <h2>The 1337 Advantage</h2>
+      <ul>
+        <li>Transparent, no-fluff consulting</li>
+        <li>Expert engineering — fast, lean, secure</li>
+        <li>Custom SaaS solutions built to scale</li>
+        <li>Full lifecycle support (dev → deploy → monitor)</li>
+      </ul>
+    </section>
 
-  <section id="contact">
-    <h2>Ready to Simplify Your Tech Stack?</h2>
-    <p>Book a quick intro call or send us a message — we’ll handle the tech so you can scale your business.</p>
-    <a href="https://calendly.com/yourbookinglink" class="btn">Schedule Free Consult</a>
-  </section>
+    <section id="contact">
+      <h2>Ready to Simplify Your Tech Stack?</h2>
+      <p>Book a quick intro call or send us a message — we’ll handle the tech so you can scale your business.</p>
+      <a href="https://calendly.com/yourbookinglink" class="btn">Schedule Free Consult</a>
+    </section>
+  </main>
 
   <footer>
     <p>1337ITSolutions © 2025 • Remote Worldwide</p>
