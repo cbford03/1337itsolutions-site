@@ -8,87 +8,112 @@
   <style>
     :root {
       --primary: #0f62fe;
-      --background: #f4f7fb;
+      --accent: #ffd700;
+      --background: #f0f2f5;
       --text: #1a1a1a;
-      --section-bg: #ffffff;
-      --border-radius: 12px;
+      --white: #ffffff;
+      --section-radius: 16px;
     }
-    * {
+
+    *, *::before, *::after {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
+
     body {
+      margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      scroll-behavior: smooth;
     }
+
     header {
-      background-color: var(--primary);
-      color: white;
-      padding: 80px 20px;
+      background: linear-gradient(135deg, var(--primary), #0047b3);
+      color: var(--white);
       text-align: center;
+      padding: 100px 20px 60px;
     }
+
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
     }
+
     header p {
       font-size: 1.25rem;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
+
     .btn {
-      background-color: white;
-      color: var(--primary);
-      font-weight: 600;
-      padding: 14px 28px;
+      background-color: var(--accent);
+      color: #000;
+      padding: 14px 30px;
       border: none;
       border-radius: 8px;
-      text-decoration: none;
+      font-weight: 600;
       font-size: 1rem;
-      transition: background 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
     }
+
     .btn:hover {
-      background-color: #e6e6e6;
+      background-color: #e6c200;
     }
-    section {
-      background-color: var(--section-bg);
-      margin: 40px auto;
-      padding: 60px 30px;
-      max-width: 960px;
-      border-radius: var(--border-radius);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      border-left: 5px solid var(--primary);
-      padding-left: 15px;
-    }
-    section p, section ul {
-      font-size: 1.1rem;
-      color: #333;
-    }
-    ul {
-      list-style-type: disc;
-      padding-left: 40px;
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.95rem;
-      color: #777;
-      background-color: #ffffff;
-      margin-top: 60px;
-    }
-    footer p {
-      margin-bottom: 8px;
-    }
+
     .container {
       width: 90%;
       max-width: 1140px;
       margin: auto;
+    }
+
+    section {
+      background-color: var(--white);
+      margin: 60px auto;
+      padding: 60px 30px;
+      border-radius: var(--section-radius);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      color: var(--primary);
+      border-left: 6px solid var(--accent);
+      padding-left: 16px;
+    }
+
+    section p, section ul {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background-color: var(--background);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      background-color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.95rem;
+      color: #777;
     }
   </style>
 </head>
@@ -109,13 +134,13 @@
 
     <section>
       <h2>Our Services</h2>
-      <ul>
-        <li>SaaS Application Development</li>
-        <li>Cloud Infrastructure (AWS, GCP, Terraform, Kubernetes)</li>
-        <li>DevOps & CI/CD Automation</li>
-        <li>Security Hardening & Monitoring</li>
-        <li>White-Glove Managed Hosting</li>
-      </ul>
+      <div class="cards">
+        <div class="card"><strong>SaaS Development</strong><br> Full-stack development tailored to your product vision.</div>
+        <div class="card"><strong>Cloud Infrastructure</strong><br> Scalable infrastructure with AWS, GCP, Terraform, and Kubernetes.</div>
+        <div class="card"><strong>DevOps Automation</strong><br> CI/CD pipelines, GitOps, and zero-downtime deployments.</div>
+        <div class="card"><strong>Security & Monitoring</strong><br> Proactive security hardening and continuous monitoring.</div>
+        <div class="card"><strong>Managed Hosting</strong><br> White-glove support with 99.99% uptime guarantees.</div>
+      </div>
     </section>
 
     <section>
