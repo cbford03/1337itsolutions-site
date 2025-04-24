@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1337ITSolutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     :root {
       --primary: #0f62fe;
@@ -32,7 +33,14 @@
       background: linear-gradient(135deg, var(--primary), #0047b3);
       color: var(--text);
       text-align: center;
-      padding: 100px 20px 60px;
+      padding: 100px 20px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header .container {
+      position: relative;
+      z-index: 1;
     }
 
     header h1 {
@@ -45,6 +53,17 @@
       font-size: 1.25rem;
       margin-bottom: 40px;
       color: var(--subtext);
+    }
+
+    lottie-player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.1;
     }
 
     .btn {
@@ -134,6 +153,7 @@
 </head>
 <body>
   <header>
+    <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_totrpclr.json" background="transparent" speed="1" loop autoplay></lottie-player>
     <div class="container">
       <h1>1337ITSolutions</h1>
       <p>IT Consulting. Automation. White-Glove SaaS Solutions.</p>
