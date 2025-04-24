@@ -141,17 +141,22 @@
     footer p {
       margin: 6px 0;
     }
-  </style>
+    @keyframes pulse {
+    0% { transform: scale(1); background-color: var(--accent); }
+    100% { transform: scale(1.05); background-color: #4be3ff; }
+  }
+</style>
 </head>
 <body>
   <header>
     <video autoplay muted loop playsinline>
-      <source src="https://assets.mixkit.co/videos/preview/mixkit-technology-background-with-data-network-4305-large.mp4" type="video/mp4">
+      <source src="https://cdn.coverr.co/videos/coverr-network-of-connected-servers-1767/1080p.mp4" type="video/mp4">
     </video>
     <div class="container">
       <h1>Strategic IT Engineering for the Bold</h1>
       <p>We build intelligent infrastructure, streamline operations, and scale systems — so your business doesn’t just compete. It dominates.</p>
-      <a href="#contact" class="btn">Get a Custom Consultation</a>
+      
+      <a href="#services" class="btn" style="margin-left: 16px; background-color: transparent; color: var(--accent); border: 2px solid var(--accent);">See Our Services</a>
     </div>
   </header>
   <!-- Keep the rest of the site as-is -->
