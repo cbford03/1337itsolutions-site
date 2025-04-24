@@ -8,14 +8,15 @@
   <style>
     :root {
       --primary: #0f62fe;
-      --accent: #ffd700;
-      --background: #f0f2f5;
-      --text: #1a1a1a;
-      --white: #ffffff;
-      --section-radius: 16px;
+      --accent: #23c9ff;
+      --background: #0e1014;
+      --surface: #1b1f26;
+      --text: #ffffff;
+      --subtext: #cccccc;
+      --section-radius: 20px;
     }
 
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
     }
 
@@ -29,7 +30,7 @@
 
     header {
       background: linear-gradient(135deg, var(--primary), #0047b3);
-      color: var(--white);
+      color: var(--text);
       text-align: center;
       padding: 100px 20px 60px;
     }
@@ -43,6 +44,7 @@
     header p {
       font-size: 1.25rem;
       margin-bottom: 40px;
+      color: var(--subtext);
     }
 
     .btn {
@@ -50,7 +52,7 @@
       color: #000;
       padding: 14px 30px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: 600;
       font-size: 1rem;
       cursor: pointer;
@@ -59,7 +61,7 @@
     }
 
     .btn:hover {
-      background-color: #e6c200;
+      background-color: #1ab3e0;
     }
 
     .container {
@@ -69,24 +71,25 @@
     }
 
     section {
-      background-color: var(--white);
+      background-color: var(--surface);
       margin: 60px auto;
       padding: 60px 30px;
       border-radius: var(--section-radius);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
 
     section h2 {
       font-size: 2.2rem;
       margin-bottom: 30px;
-      color: var(--primary);
-      border-left: 6px solid var(--accent);
+      color: var(--accent);
+      border-left: 6px solid var(--primary);
       padding-left: 16px;
     }
 
     section p, section ul {
       font-size: 1.1rem;
       line-height: 1.8;
+      color: var(--subtext);
     }
 
     .cards {
@@ -97,23 +100,35 @@
     }
 
     .card {
-      background-color: var(--background);
-      border-radius: 12px;
+      background-color: #262c38;
+      border-radius: 14px;
       padding: 24px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .card strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: var(--text);
     }
 
     footer {
-      background-color: #fff;
+      background-color: #11141a;
       text-align: center;
       padding: 40px 20px;
       font-size: 0.95rem;
-      color: #777;
+      color: var(--subtext);
+    }
+
+    footer p {
+      margin: 6px 0;
     }
   </style>
 </head>
@@ -135,11 +150,11 @@
     <section>
       <h2>Our Services</h2>
       <div class="cards">
-        <div class="card"><strong>SaaS Development</strong><br> Full-stack development tailored to your product vision.</div>
-        <div class="card"><strong>Cloud Infrastructure</strong><br> Scalable infrastructure with AWS, GCP, Terraform, and Kubernetes.</div>
-        <div class="card"><strong>DevOps Automation</strong><br> CI/CD pipelines, GitOps, and zero-downtime deployments.</div>
-        <div class="card"><strong>Security & Monitoring</strong><br> Proactive security hardening and continuous monitoring.</div>
-        <div class="card"><strong>Managed Hosting</strong><br> White-glove support with 99.99% uptime guarantees.</div>
+        <div class="card"><strong>SaaS Development</strong>Full-stack development tailored to your product vision.</div>
+        <div class="card"><strong>Cloud Infrastructure</strong>Scalable infrastructure with AWS, GCP, Terraform, and Kubernetes.</div>
+        <div class="card"><strong>DevOps Automation</strong>CI/CD pipelines, GitOps, and zero-downtime deployments.</div>
+        <div class="card"><strong>Security & Monitoring</strong>Proactive security hardening and continuous monitoring.</div>
+        <div class="card"><strong>Managed Hosting</strong>White-glove support with 99.99% uptime guarantees.</div>
       </div>
     </section>
 
