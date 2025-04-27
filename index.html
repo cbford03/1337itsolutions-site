@@ -47,17 +47,18 @@
     }
     .hexagon-menu {
       position: relative;
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 120px);
+      grid-template-rows: repeat(3, 70px);
       justify-content: center;
       align-items: center;
-      gap: 40px;
-      z-index: 1;
+      gap: 5px;
       margin-top: 40px;
+      z-index: 1;
     }
     .hexagon-menu a, .hex-center {
-      width: 100px;
-      height: 55px;
+      width: 120px;
+      height: 70px;
       background-color: var(--surface);
       color: var(--accent);
       font-weight: 600;
@@ -68,20 +69,22 @@
       clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
       transition: all 0.3s ease;
       box-shadow: 0 0 10px var(--accent);
+      font-size: 1rem;
     }
     .hexagon-menu a:hover, .hex-center:hover {
       background-color: var(--accent);
       color: #000;
-      transform: scale(1.1);
+      transform: scale(1.05);
       box-shadow: 0 0 20px var(--accent);
     }
     .hex-center {
       background-color: var(--accent);
       color: #000;
-      width: 120px;
-      height: 65px;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       cursor: default;
+    }
+    .empty-cell {
+      visibility: hidden;
     }
     section {
       background-color: var(--surface);
@@ -123,11 +126,15 @@
   <header>
     <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1" loop autoplay></lottie-player>
     <div class="hexagon-menu">
+      <div class="empty-cell"></div>
       <a href="#services">Services</a>
+      <div class="empty-cell"></div>
       <a href="#about">About</a>
       <div class="hex-center">1337ITS</div>
       <a href="#contact">Contact</a>
+      <div class="empty-cell"></div>
       <a href="#portfolio">Portfolio</a>
+      <div class="empty-cell"></div>
     </div>
   </header>
 
