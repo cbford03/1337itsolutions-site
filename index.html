@@ -48,14 +48,22 @@
     }
     .honeycomb {
       display: grid;
-      grid-template-columns: repeat(5, 120px);
-      grid-auto-rows: 70px;
+      grid-template-columns: repeat(5, 140px);
+      grid-auto-rows: 80px;
       gap: 5px;
       justify-content: center;
       align-items: center;
       position: relative;
       z-index: 1;
       animation: drift 6s ease-in-out infinite;
+    }
+    .honeycomb > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .offset {
+      transform: translateX(70px);
     }
     .hex {
       width: 120px;
@@ -83,21 +91,6 @@
       transform: scale(1.05);
       box-shadow: 0 0 20px var(--accent);
     }
-    .hex:hover::after {
-      content: "";
-      position: absolute;
-      width: 140px;
-      height: 90px;
-      border: 2px dashed var(--accent);
-      clip-path: polygon(
-        25% 0%, 75% 0%,
-        100% 50%,
-        75% 100%, 25% 100%,
-        0% 50%
-      );
-      animation: glow 1.5s infinite alternate;
-      z-index: -1;
-    }
     .hex-center-pulse {
       animation: pulse 2.5s ease-in-out infinite;
       box-shadow: 0 0 12px var(--accent);
@@ -107,10 +100,9 @@
       background-color: var(--accent-strong);
       color: #000;
     }
-    .honeycomb .empty {
+    .empty {
       visibility: hidden;
     }
-    /* Animations */
     @keyframes glow {
       0% { opacity: 0.3; }
       100% { opacity: 0.8; }
@@ -141,11 +133,9 @@
     }
   </style>
 </head>
-
 <body>
 <header>
   <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1.5" loop autoplay></lottie-player>
-
   <div class="honeycomb">
     <div class="empty"></div>
     <a href="#services" class="hex">Services</a>
@@ -153,9 +143,11 @@
     <a href="#portfolio" class="hex">Portfolio</a>
     <div class="empty"></div>
 
-    <a href="#contact" class="hex">Contact</a>
-    <div class="hex hex-center-pulse">1337ITS</div>
-    <a href="#support" class="hex">Support</a>
+    <div class="offset">
+      <a href="#contact" class="hex">Contact</a>
+      <div class="hex hex-center-pulse">1337ITS</div>
+      <a href="#support" class="hex">Support</a>
+    </div>
 
     <div class="empty"></div>
     <a href="#extra1" class="hex">Extra1</a>
@@ -164,7 +156,6 @@
     <div class="empty"></div>
   </div>
 </header>
-
 <footer style="margin-top: 60px; text-align: center; background: #11141a; padding: 40px; color: #777;">
   1337ITSolutions © 2025 • Remote Worldwide
 </footer>
