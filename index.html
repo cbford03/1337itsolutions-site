@@ -6,6 +6,7 @@
   <title>1337ITSolutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     :root {
       --primary: #0f62fe;
@@ -19,68 +20,84 @@
     * {
       box-sizing: border-box;
     }
-    body {
+    body, html {
       margin: 0;
+      padding: 0;
       font-family: 'Inter', sans-serif;
       background-color: var(--background);
       color: var(--text);
       scroll-behavior: smooth;
+      height: 100%;
     }
     header {
       position: relative;
-      overflow: hidden;
       height: 100vh;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      background-color: #000;
+      background: #000;
     }
-    header video {
+    lottie-player {
       position: absolute;
       top: 0;
       left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      opacity: 0.2;
+      width: 100%;
+      height: 100%;
+      opacity: 0.15;
       z-index: 0;
     }
-    header .container {
+    .circular-menu {
       position: relative;
-      z-index: 1;
-      max-width: 960px;
-      padding: 0 20px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      z-index: 2;
     }
-    header h1 {
-      font-size: 3.8rem;
-      font-weight: 700;
-      margin-bottom: 20px;
+    .circular-menu a {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background-color: var(--surface);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      color: var(--accent);
+      text-align: center;
+      line-height: 120px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
     }
-    header p {
-      font-size: 1.5rem;
-      color: var(--subtext);
-      margin-bottom: 40px;
-    }
-    .btn {
+    .circular-menu a:hover {
       background-color: var(--accent);
       color: #000;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s ease;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px var(--accent);
     }
-    .btn:hover {
-      background-color: #1ab3e0;
+    .circular-menu a:nth-child(1) {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
-    .container {
-      width: 90%;
-      max-width: 1140px;
-      margin: auto;
+    .circular-menu a:nth-child(2) {
+      top: 50%;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+    .circular-menu a:nth-child(3) {
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+    .circular-menu a:nth-child(4) {
+      top: 50%;
+      left: 0;
+      transform: translate(-50%, -50%);
     }
     section {
       background-color: var(--surface);
@@ -88,17 +105,15 @@
       padding: 60px 30px;
       border-radius: var(--section-radius);
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-      transition: transform 0.6s ease, opacity 0.6s ease;
+      max-width: 1000px;
     }
     section h2 {
       font-size: 2.4rem;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       color: var(--accent);
-      border-left: 6px solid var(--primary);
-      padding-left: 16px;
     }
     section p, section ul {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       line-height: 1.8;
       color: var(--subtext);
     }
@@ -113,64 +128,58 @@
       border-radius: 14px;
       padding: 24px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: transform 0.4s ease;
     }
     .card:hover {
       transform: scale(1.03);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-    }
-    .card strong {
-      display: block;
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .parallax-bg {
-      background: linear-gradient(135deg, #20242f 0%, #1b1f26 100%);
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
     }
     footer {
-      background-color: #11141a;
       text-align: center;
+      background: #11141a;
       padding: 40px 20px;
       font-size: 0.95rem;
-      color: var(--subtext);
+      color: #777;
     }
-    footer p {
-      margin: 6px 0;
-    }
-    @keyframes pulse {
-    0% { transform: scale(1); background-color: var(--accent); }
-    100% { transform: scale(1.05); background-color: #4be3ff; }
-  }
-</style>
+  </style>
 </head>
 <body>
   <header>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.2; z-index: 0;" loop autoplay></lottie-player>
-    <div class="container">
-      <h1>Strategic IT Engineering for the Bold</h1>
-      <p>We build intelligent infrastructure, streamline operations, and scale systems — so your business doesn’t just compete. It dominates.</p>
-      
-      <a href="#services" class="btn" style="margin-left: 16px; background-color: transparent; color: var(--accent); border: 2px solid var(--accent);">See Our Services</a>
+    <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1" loop autoplay></lottie-player>
+    <div class="circular-menu">
+      <a href="#services">Services</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#portfolio">Portfolio</a>
     </div>
   </header>
-  <section id="services" class="reveal">
-  <div class="container">
+
+  <section id="services">
     <h2>Our Services</h2>
     <div class="cards">
-      <div class="card"><strong>SaaS Application Development</strong> Custom software solutions tailored for scale, speed, and innovation.</div>
-      <div class="card"><strong>Cloud Infrastructure</strong> Secure, scalable systems powered by AWS, GCP, Terraform & Kubernetes.</div>
-      <div class="card"><strong>DevOps Automation</strong> Modern CI/CD pipelines, infrastructure-as-code, GitOps workflows.</div>
-      <div class="card"><strong>Security & Compliance</strong> Proactive threat detection, compliance frameworks, and 24/7 monitoring.</div>
-      <div class="card"><strong>Managed Hosting</strong> Fully managed deployments with guaranteed uptime and premium support.</div>
+      <div class="card"><strong>SaaS Application Development</strong> Tailored scalable SaaS solutions.</div>
+      <div class="card"><strong>Cloud Infrastructure</strong> Future-proof AWS, GCP, and hybrid environments.</div>
+      <div class="card"><strong>DevOps Automation</strong> Streamlined CI/CD, GitOps, and containerized workflows.</div>
+      <div class="card"><strong>Security & Compliance</strong> Enterprise-grade threat management and monitoring.</div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Keep the rest of the site as-is -->
+  <section id="about">
+    <h2>About 1337ITSolutions</h2>
+    <p>We are strategic engineering partners for high-growth companies. Our team drives scalable infrastructure, cloud innovation, and automation excellence to empower your next big leap.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Ready to transform your infrastructure? Reach out today to schedule a custom consultation and discover how we can help you build for the future.</p>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <p>Coming soon — see how we’ve helped companies scale intelligently with automation-first cloud solutions and precision DevOps practices.</p>
+  </section>
+
+  <footer>
+    <p>1337ITSolutions © 2025 • Remote Worldwide</p>
+  </footer>
 </body>
 </html>
