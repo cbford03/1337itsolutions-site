@@ -30,7 +30,6 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       background: #000;
@@ -42,48 +41,47 @@
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.15;
+      opacity: 0.1;
       z-index: 0;
     }
-    .hexagon-menu {
-      position: relative;
+    .octagon-grid {
       display: grid;
-      grid-template-columns: repeat(3, 120px);
-      grid-template-rows: repeat(3, 70px);
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      margin-top: 40px;
+      grid-template-columns: repeat(5, 100px);
+      grid-gap: 5px;
+      position: relative;
       z-index: 1;
     }
-    .hexagon-menu a, .hex-center {
-      width: 120px;
-      height: 70px;
+    .octagon, .square-connector {
+      width: 100px;
+      height: 100px;
       background-color: var(--surface);
-      color: var(--accent);
-      font-weight: 600;
       display: flex;
       justify-content: center;
       align-items: center;
+      color: var(--accent);
+      font-weight: 600;
       text-decoration: none;
-      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
       transition: all 0.3s ease;
+      clip-path: polygon(
+        30% 0%, 70% 0%, 100% 30%, 100% 70%,
+        70% 100%, 30% 100%, 0% 70%, 0% 30%
+      );
       box-shadow: 0 0 10px var(--accent);
-      font-size: 1rem;
     }
-    .hexagon-menu a:hover, .hex-center:hover {
+    .octagon:hover {
       background-color: var(--accent);
       color: #000;
       transform: scale(1.05);
       box-shadow: 0 0 20px var(--accent);
     }
-    .hex-center {
-      background-color: var(--accent);
-      color: #000;
-      font-size: 1.4rem;
-      cursor: default;
+    .square-connector {
+      width: 30px;
+      height: 30px;
+      background: var(--accent);
+      clip-path: none;
+      border-radius: 4px;
     }
-    .empty-cell {
+    .empty {
       visibility: hidden;
     }
     section {
@@ -120,47 +118,22 @@
       color: #777;
       font-size: 0.95rem;
     }
-  .hexagon-menu::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(35,201,255,0.2) 0%, transparent 70%);
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
-.hexagon-menu a::after, .hex-center::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 50px;
-  background: var(--accent);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scaleY(0);
-  transition: transform 0.4s ease;
-  z-index: -1;
-}
-.hexagon-menu a:hover::after, .hex-center:hover::after {
-  transform: translate(-50%, -50%) scaleY(1);
-}
-</style>
+  </style>
 </head>
 <body>
   <header>
     <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1" loop autoplay></lottie-player>
-    <div class="hexagon-menu">
-      <div class="empty-cell"></div>
-      <a href="#services">Services</a>
-      <div class="empty-cell"></div>
-      <a href="#about">About</a>
-      <div class="hex-center">1337ITS</div>
-      <a href="#contact">Contact</a>
-      <div class="empty-cell"></div>
-      <a href="#portfolio">Portfolio</a>
-      <div class="empty-cell"></div>
+    <div class="octagon-grid">
+      <div class="empty"></div>
+      <a href="#services" class="octagon">Services</a>
+      <div class="square-connector"></div>
+      <a href="#about" class="octagon">About</a>
+      <div class="empty"></div>
+      <a href="#portfolio" class="octagon">Portfolio</a>
+      <div class="square-connector"></div>
+      <div class="octagon">1337ITS</div>
+      <div class="square-connector"></div>
+      <a href="#contact" class="octagon">Contact</a>
     </div>
   </header>
 
