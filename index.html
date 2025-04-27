@@ -44,43 +44,43 @@
       opacity: 0.1;
       z-index: 0;
     }
-    .grid-wrapper {
+    .honeycomb {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
       position: relative;
-      display: grid;
-      grid-template-columns: repeat(5, 120px);
-      grid-template-rows: repeat(3, 120px);
-      gap: 0;
       z-index: 1;
+      max-width: 600px;
     }
-    .octagon, .square-connector {
-      width: 120px;
-      height: 120px;
+    .hex {
+      width: 100px;
+      height: 55px;
       background-color: var(--surface);
-      color: var(--accent);
-      font-weight: 600;
+      margin: 5px;
       display: flex;
       justify-content: center;
       align-items: center;
+      color: var(--accent);
+      font-weight: 600;
       text-decoration: none;
-      clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+      clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
       transition: all 0.3s ease;
       box-shadow: 0 0 10px var(--accent);
-      font-size: 1rem;
     }
-    .octagon:hover {
+    .hex:hover {
       background-color: var(--accent);
       color: #000;
       transform: scale(1.05);
       box-shadow: 0 0 20px var(--accent);
     }
-    .square-connector {
-      width: 60px;
-      height: 60px;
-      background: var(--accent);
-      border-radius: 4px;
+    .honeycomb-row {
+      display: flex;
+      justify-content: center;
     }
-    .empty {
-      visibility: hidden;
+    .honeycomb-row:nth-child(even) {
+      margin-left: 55px;
     }
     section {
       background-color: var(--surface);
@@ -121,18 +121,16 @@
 <body>
   <header>
     <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1" loop autoplay></lottie-player>
-    <div class="grid-wrapper">
-      <div class="empty"></div>
-      <a href="#services" class="octagon">Services</a>
-      <div class="square-connector"></div>
-      <a href="#about" class="octagon">About</a>
-      <div class="empty"></div>
-
-      <a href="#portfolio" class="octagon">Portfolio</a>
-      <div class="square-connector"></div>
-      <div class="octagon">1337ITS</div>
-      <div class="square-connector"></div>
-      <a href="#contact" class="octagon">Contact</a>
+    <div class="honeycomb">
+      <div class="honeycomb-row">
+        <a href="#services" class="hex">Services</a>
+        <a href="#about" class="hex">About</a>
+      </div>
+      <div class="honeycomb-row">
+        <a href="#portfolio" class="hex">Portfolio</a>
+        <div class="hex">1337ITS</div>
+        <a href="#contact" class="hex">Contact</a>
+      </div>
     </div>
   </header>
 
