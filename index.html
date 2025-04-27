@@ -117,7 +117,21 @@
       color: #777;
       font-size: 0.95rem;
     }
-  </style>
+  .hex:hover::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 70px;
+  border: 2px dashed var(--accent);
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  animation: glow 1.5s infinite alternate;
+  z-index: -1;
+}
+@keyframes glow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.8; }
+}
+</style>
 </head>
 <body>
 <header>
