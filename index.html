@@ -35,6 +35,7 @@
       align-items: center;
       background: #000;
       text-align: center;
+      animation: ripple 2s ease;
     }
     lottie-player {
       position: absolute;
@@ -42,8 +43,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.1;
+      opacity: 0.2;
       z-index: 0;
+      animation: faster-float 8s ease-in-out infinite;
     }
     .honeycomb {
       display: flex;
@@ -52,16 +54,14 @@
       position: relative;
       z-index: 1;
       gap: 10px;
-      animation: drift 6s ease-in-out infinite;
     }
     .honeycomb-row {
       display: flex;
       justify-content: center;
       gap: 10px;
     }
-    .honeycomb-row:nth-child(even) {
-      margin-left: 60px;
-      margin-top: -22px;
+    .honeycomb-row.offset {
+      margin-left: 55px;
     }
     .hex {
       width: 100px;
@@ -81,7 +81,6 @@
       );
       transition: all 0.3s ease;
       box-shadow: 0 0 10px var(--accent);
-      animation: floatIn 1s ease forwards;
       position: relative;
     }
     .hex:hover {
@@ -105,56 +104,38 @@
       animation: glow 1.5s infinite alternate;
       z-index: -1;
     }
-    /* Special center pulse */
     .hex-center-pulse {
-      animation: pulse 2.5s ease-in-out infinite, drift 6s ease-in-out infinite;
+      animation: pulse 2.5s ease-in-out infinite;
       box-shadow: 0 0 12px var(--accent);
     }
     .hex-center-pulse:hover {
-      animation: pulse-hover 1.5s ease-in-out infinite, drift 6s ease-in-out infinite;
+      animation: pulse-hover 1.5s ease-in-out infinite;
       background-color: var(--accent-strong);
       color: #000;
     }
-    @keyframes floatIn {
-      0% { transform: translateY(50px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
+    /* Animations */
     @keyframes glow {
       0% { opacity: 0.3; }
       100% { opacity: 0.8; }
     }
-    @keyframes drift {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-      100% { transform: translateY(0); }
-    }
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 12px var(--accent);
-      }
-      50% {
-        transform: scale(1.08);
-        box-shadow: 0 0 24px var(--accent);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 12px var(--accent);
-      }
+      0% { transform: scale(1); box-shadow: 0 0 12px var(--accent); }
+      50% { transform: scale(1.08); box-shadow: 0 0 24px var(--accent); }
+      100% { transform: scale(1); box-shadow: 0 0 12px var(--accent); }
     }
     @keyframes pulse-hover {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 14px var(--accent-strong);
-      }
-      50% {
-        transform: scale(1.12);
-        box-shadow: 0 0 28px var(--accent-strong);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 14px var(--accent-strong);
-      }
+      0% { transform: scale(1); box-shadow: 0 0 14px var(--accent-strong); }
+      50% { transform: scale(1.12); box-shadow: 0 0 28px var(--accent-strong); }
+      100% { transform: scale(1); box-shadow: 0 0 14px var(--accent-strong); }
+    }
+    @keyframes ripple {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes faster-float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
     section {
       background-color: var(--surface);
@@ -195,18 +176,21 @@
 
 <body>
 <header>
-  <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1" loop autoplay></lottie-player>
+  <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1.5" loop autoplay></lottie-player>
 
   <div class="honeycomb">
-    <div class="honeycomb-row">
+    <div class="honeycomb-row offset">
       <a href="#services" class="hex">Services</a>
       <a href="#about" class="hex">About</a>
       <a href="#portfolio" class="hex">Portfolio</a>
     </div>
     <div class="honeycomb-row">
-      <a href="#contact" class="hex">Contact</a>
       <div class="hex hex-center-pulse">1337ITS</div>
+    </div>
+    <div class="honeycomb-row offset">
+      <a href="#contact" class="hex">Contact</a>
       <a href="#support" class="hex">Support</a>
+      <a href="#extra" class="hex">Extra</a>
     </div>
   </div>
 </header>
