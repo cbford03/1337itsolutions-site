@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1337ITSolutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     :root {
       --primary: #0f62fe;
       --accent: #23c9ff;
+      --accent-strong: #00ffff;
       --background: #0e1014;
       --surface: #1b1f26;
       --text: #ffffff;
@@ -105,6 +105,16 @@
       animation: glow 1.5s infinite alternate;
       z-index: -1;
     }
+    /* Special center pulse */
+    .hex-center-pulse {
+      animation: pulse 2.5s ease-in-out infinite, drift 6s ease-in-out infinite;
+      box-shadow: 0 0 12px var(--accent);
+    }
+    .hex-center-pulse:hover {
+      animation: pulse-hover 1.5s ease-in-out infinite, drift 6s ease-in-out infinite;
+      background-color: var(--accent-strong);
+      color: #000;
+    }
     @keyframes floatIn {
       0% { transform: translateY(50px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
@@ -117,6 +127,34 @@
       0% { transform: translateY(0); }
       50% { transform: translateY(-5px); }
       100% { transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 12px var(--accent);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 24px var(--accent);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 12px var(--accent);
+      }
+    }
+    @keyframes pulse-hover {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 14px var(--accent-strong);
+      }
+      50% {
+        transform: scale(1.12);
+        box-shadow: 0 0 28px var(--accent-strong);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 14px var(--accent-strong);
+      }
     }
     section {
       background-color: var(--surface);
@@ -167,7 +205,7 @@
     </div>
     <div class="honeycomb-row">
       <a href="#contact" class="hex">Contact</a>
-      <div class="hex">1337ITS</div>
+      <div class="hex hex-center-pulse">1337ITS</div>
       <a href="#support" class="hex">Support</a>
     </div>
   </div>
