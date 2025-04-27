@@ -34,6 +34,7 @@
       align-items: center;
       background: #000;
       text-align: center;
+      flex-direction: column;
     }
     lottie-player {
       position: absolute;
@@ -46,19 +47,21 @@
     }
     .honeycomb {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
       position: relative;
       z-index: 1;
-      max-width: 600px;
+      gap: 10px;
+    }
+    .honeycomb-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
     .hex {
       width: 100px;
       height: 55px;
       background-color: var(--surface);
-      margin: 5px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -68,6 +71,7 @@
       clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
       transition: all 0.3s ease;
       box-shadow: 0 0 10px var(--accent);
+      animation: floatIn 1s ease forwards;
     }
     .hex:hover {
       background-color: var(--accent);
@@ -75,12 +79,9 @@
       transform: scale(1.05);
       box-shadow: 0 0 20px var(--accent);
     }
-    .honeycomb-row {
-      display: flex;
-      justify-content: center;
-    }
-    .honeycomb-row:nth-child(even) {
-      margin-left: 55px;
+    @keyframes floatIn {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
     section {
       background-color: var(--surface);
@@ -116,75 +117,58 @@
       color: #777;
       font-size: 0.95rem;
     }
-      @keyframes floatIn {
-      0% { transform: translateY(50px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-    .hex {
-      animation: floatIn 1s ease forwards;
-    }
-    .honeycomb .hex:nth-child(1) { animation-delay: 0s; }
-    .honeycomb .hex:nth-child(2) { animation-delay: 0.2s; }
-    .honeycomb .hex:nth-child(3) { animation-delay: 0.4s; }
-    .honeycomb .hex:nth-child(4) { animation-delay: 0.6s; }
-    .honeycomb .hex:nth-child(5) { animation-delay: 0.8s; }
-    .honeycomb .hex:nth-child(6) { animation-delay: 1s; }
-    .honeycomb .hex:nth-child(7) { animation-delay: 1.2s; }
-</style>
+  </style>
 </head>
 <body>
-  <header>
-    <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1" loop autoplay></lottie-player>
-    <div class="honeycomb">
-  <div class="honeycomb-row">
-    <a href="#extra1" class="hex">Extra 1</a>
-    <a href="#services" class="hex">Services</a>
-    <a href="#about" class="hex">About</a>
-  </div>
-  <div class="honeycomb-row">
-    <a href="#portfolio" class="hex">Portfolio</a>
-    <div class="hex">1337ITS</div>
-    <a href="#contact" class="hex">Contact</a>
-  </div>
-  <div class="honeycomb-row">
-    <a href="#extra2" class="hex">Extra 2</a>
-  </div>
-</div>
-      <div class="honeycomb-row">
-        <a href="#portfolio" class="hex">Portfolio</a>
-        <div class="hex">1337ITS</div>
-        <a href="#contact" class="hex">Contact</a>
-      </div>
+<header>
+  <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1" loop autoplay></lottie-player>
+  <div class="honeycomb">
+    <div class="honeycomb-row">
+      <a href="#extra1" class="hex">Extra 1</a>
+      <a href="#services" class="hex">Services</a>
+      <a href="#about" class="hex">About</a>
     </div>
-  </header>
-
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="cards">
-      <div class="card"><strong>SaaS Application Development</strong> Tailored scalable SaaS solutions.</div>
-      <div class="card"><strong>Cloud Infrastructure</strong> Future-proof AWS, GCP, and hybrid environments.</div>
-      <div class="card"><strong>DevOps Automation</strong> Streamlined CI/CD, GitOps, and containerized workflows.</div>
-      <div class="card"><strong>Security & Compliance</strong> Enterprise-grade threat management and monitoring.</div>
+    <div class="honeycomb-row">
+      <a href="#extra2" class="hex">Extra 2</a>
+      <a href="#portfolio" class="hex">Portfolio</a>
+      <div class="hex">1337ITS</div>
+      <a href="#contact" class="hex">Contact</a>
+      <a href="#extra3" class="hex">Extra 3</a>
     </div>
-  </section>
+    <div class="honeycomb-row">
+      <a href="#extra4" class="hex">Extra 4</a>
+      <a href="#extra5" class="hex">Extra 5</a>
+    </div>
+  </div>
+</header>
 
-  <section id="about">
-    <h2>About 1337ITSolutions</h2>
-    <p>We are strategic engineering partners for high-growth companies. Our team drives scalable infrastructure, cloud innovation, and automation excellence to empower your next big leap.</p>
-  </section>
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card"><strong>SaaS Application Development</strong> Tailored scalable SaaS solutions.</div>
+    <div class="card"><strong>Cloud Infrastructure</strong> Future-proof AWS, GCP, and hybrid environments.</div>
+    <div class="card"><strong>DevOps Automation</strong> Streamlined CI/CD, GitOps, and containerized workflows.</div>
+    <div class="card"><strong>Security & Compliance</strong> Enterprise-grade threat management and monitoring.</div>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Ready to transform your infrastructure? Reach out today to schedule a custom consultation and discover how we can help you build for the future.</p>
-  </section>
+<section id="about">
+  <h2>About 1337ITSolutions</h2>
+  <p>We are strategic engineering partners for high-growth companies. Our team drives scalable infrastructure, cloud innovation, and automation excellence to empower your next big leap.</p>
+</section>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <p>Coming soon — see how we’ve helped companies scale intelligently with automation-first cloud solutions and precision DevOps practices.</p>
-  </section>
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Ready to transform your infrastructure? Reach out today to schedule a custom consultation and discover how we can help you build for the future.</p>
+</section>
 
-  <footer>
-    <p>1337ITSolutions © 2025 • Remote Worldwide</p>
-  </footer>
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <p>Coming soon — see how we’ve helped companies scale intelligently with automation-first cloud solutions and precision DevOps practices.</p>
+</section>
+
+<footer>
+  <p>1337ITSolutions © 2025 • Remote Worldwide</p>
+</footer>
 </body>
 </html>
