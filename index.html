@@ -30,11 +30,11 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       background: #000;
       text-align: center;
-      flex-direction: column;
     }
     lottie-player {
       position: absolute;
@@ -52,15 +52,20 @@
       position: relative;
       z-index: 1;
       gap: 10px;
+      animation: drift 6s ease-in-out infinite;
     }
     .honeycomb-row {
       display: flex;
       justify-content: center;
       gap: 10px;
     }
+    .honeycomb-row:nth-child(even) {
+      margin-left: 60px;
+      margin-top: -22px;
+    }
     .hex {
       width: 100px;
-      height: 55px;
+      height: 60px;
       background-color: var(--surface);
       display: flex;
       justify-content: center;
@@ -68,10 +73,16 @@
       color: var(--accent);
       font-weight: 600;
       text-decoration: none;
-      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      clip-path: polygon(
+        25% 0%, 75% 0%,
+        100% 50%,
+        75% 100%, 25% 100%,
+        0% 50%
+      );
       transition: all 0.3s ease;
       box-shadow: 0 0 10px var(--accent);
       animation: floatIn 1s ease forwards;
+      position: relative;
     }
     .hex:hover {
       background-color: var(--accent);
@@ -79,9 +90,33 @@
       transform: scale(1.05);
       box-shadow: 0 0 20px var(--accent);
     }
+    .hex:hover::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 70px;
+      border: 2px dashed var(--accent);
+      clip-path: polygon(
+        25% 0%, 75% 0%,
+        100% 50%,
+        75% 100%, 25% 100%,
+        0% 50%
+      );
+      animation: glow 1.5s infinite alternate;
+      z-index: -1;
+    }
     @keyframes floatIn {
       0% { transform: translateY(50px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes glow {
+      0% { opacity: 0.3; }
+      100% { opacity: 0.8; }
+    }
+    @keyframes drift {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
     }
     section {
       background-color: var(--surface);
@@ -117,49 +152,25 @@
       color: #777;
       font-size: 0.95rem;
     }
-  .hex:hover::after {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 70px;
-  border: 2px dashed var(--accent);
-  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
-  animation: glow 1.5s infinite alternate;
-  z-index: -1;
-}
-@keyframes glow {
-  0% { opacity: 0.3; }
-  100% { opacity: 0.8; }
-}
-.honeycomb-row:nth-child(even) {
-  margin-left: 50px;
-  margin-top: -18px;
-}
-@keyframes drift {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-}
-.honeycomb {
-  animation: drift 6s ease-in-out infinite;
-}
-</style>
+  </style>
 </head>
+
 <body>
 <header>
   <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1" loop autoplay></lottie-player>
+
   <div class="honeycomb">
-  <div class="honeycomb-row">
-    <a href="#services" class="hex">Services</a>
-    <a href="#about" class="hex">About</a>
-    <a href="#portfolio" class="hex">Portfolio</a>
+    <div class="honeycomb-row">
+      <a href="#services" class="hex">Services</a>
+      <a href="#about" class="hex">About</a>
+      <a href="#portfolio" class="hex">Portfolio</a>
+    </div>
+    <div class="honeycomb-row">
+      <a href="#contact" class="hex">Contact</a>
+      <div class="hex">1337ITS</div>
+      <a href="#support" class="hex">Support</a>
+    </div>
   </div>
-  <div class="honeycomb-row">
-    <a href="#contact" class="hex">Contact</a>
-    <div class="hex">1337ITS</div>
-    <a href="#support" class="hex">Support</a>
-  </div>
-</div>
 </header>
 
 <section id="services">
