@@ -58,6 +58,7 @@
       flex-wrap: wrap;
       gap: 40px;
       z-index: 2;
+      animation: rotateMenu 20s linear infinite;
     }
     .circular-menu a {
       position: absolute;
@@ -72,12 +73,13 @@
       text-decoration: none;
       font-weight: 600;
       transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 15px rgba(35, 201, 255, 0.5);
     }
     .circular-menu a:hover {
       background-color: var(--accent);
       color: #000;
-      transform: scale(1.1);
-      box-shadow: 0 0 20px var(--accent);
+      transform: scale(1.2);
+      box-shadow: 0 0 30px var(--accent);
     }
     .circular-menu a:nth-child(1) {
       top: 0;
@@ -98,6 +100,10 @@
       top: 50%;
       left: 0;
       transform: translate(-50%, -50%);
+    }
+    @keyframes rotateMenu {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     section {
       background-color: var(--surface);
