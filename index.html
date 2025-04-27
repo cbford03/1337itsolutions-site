@@ -68,7 +68,7 @@
       color: var(--accent);
       font-weight: 600;
       text-decoration: none;
-      clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
       transition: all 0.3s ease;
       box-shadow: 0 0 10px var(--accent);
       animation: floatIn 1s ease forwards;
@@ -132,8 +132,16 @@
   100% { opacity: 0.8; }
 }
 .honeycomb-row:nth-child(even) {
-  margin-left: 55px;
-  margin-top: -14px;
+  margin-left: 50px;
+  margin-top: -18px;
+}
+@keyframes drift {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+.honeycomb {
+  animation: drift 6s ease-in-out infinite;
 }
 </style>
 </head>
