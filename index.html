@@ -44,29 +44,28 @@
       opacity: 0.1;
       z-index: 0;
     }
-    .octagon-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 100px);
-      grid-gap: 5px;
+    .grid-wrapper {
       position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, 120px);
+      grid-template-rows: repeat(3, 120px);
+      gap: 0;
       z-index: 1;
     }
     .octagon, .square-connector {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       background-color: var(--surface);
+      color: var(--accent);
+      font-weight: 600;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: var(--accent);
-      font-weight: 600;
       text-decoration: none;
+      clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
       transition: all 0.3s ease;
-      clip-path: polygon(
-        30% 0%, 70% 0%, 100% 30%, 100% 70%,
-        70% 100%, 30% 100%, 0% 70%, 0% 30%
-      );
       box-shadow: 0 0 10px var(--accent);
+      font-size: 1rem;
     }
     .octagon:hover {
       background-color: var(--accent);
@@ -75,10 +74,9 @@
       box-shadow: 0 0 20px var(--accent);
     }
     .square-connector {
-      width: 30px;
-      height: 30px;
+      width: 60px;
+      height: 60px;
       background: var(--accent);
-      clip-path: none;
       border-radius: 4px;
     }
     .empty {
@@ -123,12 +121,13 @@
 <body>
   <header>
     <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1" loop autoplay></lottie-player>
-    <div class="octagon-grid">
+    <div class="grid-wrapper">
       <div class="empty"></div>
       <a href="#services" class="octagon">Services</a>
       <div class="square-connector"></div>
       <a href="#about" class="octagon">About</a>
       <div class="empty"></div>
+
       <a href="#portfolio" class="octagon">Portfolio</a>
       <div class="square-connector"></div>
       <div class="octagon">1337ITS</div>
@@ -140,30 +139,4 @@
   <section id="services">
     <h2>Our Services</h2>
     <div class="cards">
-      <div class="card"><strong>SaaS Application Development</strong> Tailored scalable SaaS solutions.</div>
-      <div class="card"><strong>Cloud Infrastructure</strong> Future-proof AWS, GCP, and hybrid environments.</div>
-      <div class="card"><strong>DevOps Automation</strong> Streamlined CI/CD, GitOps, and containerized workflows.</div>
-      <div class="card"><strong>Security & Compliance</strong> Enterprise-grade threat management and monitoring.</div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About 1337ITSolutions</h2>
-    <p>We are strategic engineering partners for high-growth companies. Our team drives scalable infrastructure, cloud innovation, and automation excellence to empower your next big leap.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Ready to transform your infrastructure? Reach out today to schedule a custom consultation and discover how we can help you build for the future.</p>
-  </section>
-
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <p>Coming soon — see how we’ve helped companies scale intelligently with automation-first cloud solutions and precision DevOps practices.</p>
-  </section>
-
-  <footer>
-    <p>1337ITSolutions © 2025 • Remote Worldwide</p>
-  </footer>
-</body>
-</html>
+      <div class="card">
