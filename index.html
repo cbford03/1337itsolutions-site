@@ -34,32 +34,35 @@
       align-items: center;
       background: #000;
       text-align: center;
-      animation: ripple 2s ease;
     }
-    lottie-player {
+    .lottie-bg {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.2;
+      opacity: 0.15;
       z-index: 0;
-      animation: faster-float 8s ease-in-out infinite;
+      pointer-events: none;
+      animation: float 5s ease-in-out infinite;
+      transition: opacity 0.5s ease;
+    }
+    header:hover .lottie-bg {
+      opacity: 0.25;
     }
     .honeycomb {
       display: grid;
       grid-template-columns: repeat(5, 120px);
-      grid-auto-rows: 60px;
-      gap: 0px;
+      grid-auto-rows: 70px;
+      gap: 10px;
       justify-content: center;
       align-items: center;
       position: relative;
       z-index: 1;
-      animation: drift 6s ease-in-out infinite;
     }
     .hex {
       width: 120px;
-      height: 60px;
+      height: 70px;
       background-color: var(--surface);
       display: flex;
       justify-content: center;
@@ -70,7 +73,6 @@
       clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
       transition: all 0.3s ease;
       box-shadow: 0 0 10px var(--accent);
-      position: relative;
     }
     .hex:hover {
       background-color: var(--accent);
@@ -90,31 +92,54 @@
     .empty {
       visibility: hidden;
     }
-    @keyframes glow { 0% { opacity: 0.3; } 100% { opacity: 0.8; } }
-    @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 12px var(--accent); } 50% { transform: scale(1.08); box-shadow: 0 0 24px var(--accent); } 100% { transform: scale(1); box-shadow: 0 0 12px var(--accent); } }
-    @keyframes pulse-hover { 0% { transform: scale(1); box-shadow: 0 0 14px var(--accent-strong); } 50% { transform: scale(1.12); box-shadow: 0 0 28px var(--accent-strong); } 100% { transform: scale(1); box-shadow: 0 0 14px var(--accent-strong); } }
-    @keyframes ripple { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
-    @keyframes faster-float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
-    @keyframes drift { 0% { transform: translateY(0); } 50% { transform: translateY(-5px); } 100% { transform: translateY(0); } }
+    /* Animations */
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 12px var(--accent); }
+      50% { transform: scale(1.08); box-shadow: 0 0 24px var(--accent); }
+      100% { transform: scale(1); box-shadow: 0 0 12px var(--accent); }
+    }
+    @keyframes pulse-hover {
+      0% { transform: scale(1); box-shadow: 0 0 14px var(--accent-strong); }
+      50% { transform: scale(1.12); box-shadow: 0 0 28px var(--accent-strong); }
+      100% { transform: scale(1); box-shadow: 0 0 14px var(--accent-strong); }
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
   </style>
 </head>
+
 <body>
 <header>
-  <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json" background="transparent" speed="1.5" loop autoplay></lottie-player>
+  <lottie-player
+    class="lottie-bg"
+    src="https://assets5.lottiefiles.com/packages/lf20_tno6cg2w.json"
+    background="transparent"
+    speed="2.5"
+    loop
+    autoplay
+  ></lottie-player>
+
   <div class="honeycomb">
+    <!-- Top Row -->
     <div class="empty"></div>
     <a href="#services" class="hex">Services</a>
     <a href="#about" class="hex">About</a>
     <a href="#portfolio" class="hex">Portfolio</a>
     <div class="empty"></div>
 
+    <!-- Middle Row -->
     <a href="#contact" class="hex">Contact</a>
     <div class="hex hex-center-pulse">1337ITS</div>
     <a href="#support" class="hex">Support</a>
 
+    <!-- Bottom Row -->
     <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
+    <a href="#extra1" class="hex">Extra1</a>
+    <a href="#extra2" class="hex">Extra2</a>
+    <a href="#extra3" class="hex">Extra3</a>
     <div class="empty"></div>
   </div>
 </header>
